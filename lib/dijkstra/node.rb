@@ -9,5 +9,9 @@ module Dijkstra
     def neighbours(graph)
       graph.neighbours(id)
     end
+
+    def ==(other)
+      id == other.id
+    end
   end
 end

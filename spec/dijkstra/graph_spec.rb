@@ -16,6 +16,13 @@ module Dijkstra
       }
     end
 
+    let(:node_1) { Node.new(1) }
+    let(:node_2) { Node.new(2) }
+    let(:node_3) { Node.new(3) }
+    let(:node_4) { Node.new(4) }
+    let(:node_5) { Node.new(5) }
+    let(:node_6) { Node.new(6) }
+
     subject { Graph.new(graph_definition) }
 
     it 'builds a nodes and axis through a hash input' do
@@ -28,6 +35,7 @@ module Dijkstra
     describe '#find' do
       it 'finds a node by its id' do
         expect(subject.find(1)).to be_a_kind_of Node
+        expect(subject.find(1)).to eq Node.new(1)
       end
 
       it 'return nil if a node is not found' do
@@ -37,12 +45,12 @@ module Dijkstra
 
     describe '#neighbours' do
       it 'returns a list of neighbour nodes for a given node' do
-        expect(subject.neighbours(1).sort).to eq [2,3,6]
-        expect(subject.neighbours(2).sort).to eq [1,3,4]
-        expect(subject.neighbours(3).sort).to eq [1,2,4,6]
-        expect(subject.neighbours(4).sort).to eq [2,3,5]
-        expect(subject.neighbours(5).sort).to eq [4,6]
-        expect(subject.neighbours(6).sort).to eq [1,3,5]
+        expect(subject.neighbours(node_1).map(&:id).sort).to eq [2,3,6]
+        expect(subject.neighbours(node_2).map(&:id).sort).to eq [1,3,4]
+        expect(subject.neighbours(node_3).map(&:id).sort).to eq [1,2,4,6]
+        expect(subject.neighbours(node_4).map(&:id).sort).to eq [2,3,5]
+        expect(subject.neighbours(node_5).map(&:id).sort).to eq [4,6]
+        expect(subject.neighbours(node_6).map(&:id).sort).to eq [1,3,5]
       end
     end
   end

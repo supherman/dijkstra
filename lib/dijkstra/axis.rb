@@ -8,8 +8,8 @@ module Dijkstra
       @value = value
     end
 
-    def include?(node_id)
-     !!nodes.find { |node| node.id == node_id }
+    def include?(node)
+      nodes.include?(node)
     end
   end
 end

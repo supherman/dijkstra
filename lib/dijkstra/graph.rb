@@ -12,10 +12,12 @@ module Dijkstra
       @nodes.find { |node| node.id == node_id }
     end
 
-    def neighbours(node_id)
-      axis.select do |ax|
-        ax.include?(node_id)
-      end.map(&:nodes).flatten.map(&:id).uniq - [node_id]
+    def neighbours(node)
+      neighbours = axis.select do |ax|
+        ax.include?(node)
+      end.map(&:nodes).flatten.uniq
+      neighbours.delete(node)
+      neighbours
     end
 
     private
