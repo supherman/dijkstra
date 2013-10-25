@@ -34,5 +34,16 @@ module Dijkstra
         expect(subject.find(10)).to be_nil
       end
     end
+
+    describe '#neighbours' do
+      it 'returns a list of neighbour nodes for a given node' do
+        expect(subject.neighbours(1).sort).to eq [2,3,6]
+        expect(subject.neighbours(2).sort).to eq [1,3,4]
+        expect(subject.neighbours(3).sort).to eq [1,2,4,6]
+        expect(subject.neighbours(4).sort).to eq [2,3,5]
+        expect(subject.neighbours(5).sort).to eq [4,6]
+        expect(subject.neighbours(6).sort).to eq [1,3,5]
+      end
+    end
   end
 end

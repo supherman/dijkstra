@@ -5,5 +5,9 @@ module Dijkstra
     def initialize(id)
       @id = id
     end
+
+    def neighbours(graph)
+      graph.neighbours(id)
+    end
   end
 end
