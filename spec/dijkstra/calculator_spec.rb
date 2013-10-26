@@ -27,7 +27,6 @@ module Dijkstra
 
     it 'find the shortest path to a given node' do
       expect(Calculator.new(graph, node_1, node_5).perform).to eq([node_3, node_6, node_5])
-      #expect(Calculator.new(graph, node_2, node_5).perform).to eq([node_3, node_6, node_5])
     end
   end
 end

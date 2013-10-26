@@ -16,9 +16,6 @@ module Dijkstra
 
     def initialize_algorithm
       @current   = origin_node
-      #@distances = Hash.new
-      #graph.nodes.each { |node| @distances.merge!( node => Float::INFINITY ) }
-      #@distances[@current] = 0
       @visited = [origin_node]
       solution = []
       while @current != target_node do
