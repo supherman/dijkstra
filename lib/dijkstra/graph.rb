@@ -20,6 +20,14 @@ module Dijkstra
       neighbours
     end
 
+    def axis_of(node_a, node_b)
+      @axis.find { |ax| ax.include?(node_a) && ax.include?(node_b) }
+    end
+
+    def distance_between(node_a, node_b)
+      axis_of(node_a, node_b).value
+    end
+
     private
 
     def build_nodes(definition)

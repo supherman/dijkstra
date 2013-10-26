@@ -53,5 +53,19 @@ module Dijkstra
         expect(subject.neighbours(node_6).map(&:id).sort).to eq [1,3,5]
       end
     end
+
+    describe '#axis_of' do
+      it 'returns the axis of a given pair of nodes' do
+        expect(subject.axis_of(node_1, node_2)).to be_a_kind_of Axis
+      end
+    end
+
+    describe '#distance_between' do
+      it 'calculates the distance between 2 nodes' do
+        expect(subject.distance_between(node_1, node_2)).to eq(7)
+        expect(subject.distance_between(node_2, node_3)).to eq(10)
+        expect(subject.distance_between(node_4, node_5)).to eq(6)
+      end
+    end
   end
 end
